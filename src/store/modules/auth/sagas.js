@@ -36,7 +36,6 @@ export function* signUp({ payload }) {
       name,
       email,
       password,
-      provider: true,
     });
 
     yield put(signUpSuccess());

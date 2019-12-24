@@ -6,11 +6,11 @@ import api from '~/services/api';
 
 export function* updateUser({ payload }) {
   try {
-    const { name, email, avatar_id, ...rest } = payload.data;
+    const { name, email, ...rest } = payload.data;
 
     const profile = Object.assign(
-      { name, email, avatar_id },
-      rest.oldPassword ? rest : {},
+      { name, email },
+      rest.oldPassword ? rest : {}
     );
 
     const response = yield call(api.put, 'users', profile);
@@ -22,6 +22,4 @@ export function* updateUser({ payload }) {
   }
 }
 
-export default all([
-  takeLatest('@user/UPDATE_PROFILE_REQUEST', updateUser),
-]);
+export default all([takeLatest('@user/UPDATE_PROFILE_REQUEST', updateUser)]);

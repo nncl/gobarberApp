@@ -7,7 +7,7 @@ const api = axios.create({
 api.interceptors.response.use(null, err => {
   const { status } = err.response;
   if (status === 401) {
-    // TODO
+    // FIXME
   }
   return err;
 });

@@ -20,8 +20,6 @@ export function* signIn({ payload }) {
     }
 
     yield put(signInSuccess(token, user));
-
-    // history.push('/dashboard'); FIXME
   } catch (e) {
     Alert.alert(`Error`, `Error signing in!`);
     yield put(signFailure());
@@ -39,8 +37,6 @@ export function* signUp({ payload }) {
     });
 
     yield put(signUpSuccess());
-
-    // history.push('/'); FIXME
   } catch (e) {
     Alert.alert(`Error`, `Error registering!`);
     yield put(signFailure());
